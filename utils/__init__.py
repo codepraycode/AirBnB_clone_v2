@@ -1,3 +1,1 @@
-
-
-from generateId import *
+from .generateId import generateObjId

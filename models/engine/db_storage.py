@@ -11,14 +11,17 @@ from models.state import State
 from os import getenv
 from sqlalchemy import create_engine, MetaData
 from sqlalchemy.orm import sessionmaker, scoped_session
-from utils import generateId
+from utils.generateId import generateObjId as generateId
 
 
 CLASSES = {
-    "Amenity": Amenity, "User": User,
-    "City": City, "Place": Place,
-    "Review": Review, "State": State,
-    "BaseModel": BaseModel,
+    # "Amenity": Amenity,
+    # "User": User,
+    "City": City,
+    # "Place": Place,
+    # "Review": Review,
+    "State": State,
+    # "BaseModel": BaseModel,
 }
 
 DATABASE = getenv("HBNB_MYSQL_DB")
@@ -45,7 +48,7 @@ class DBStorage:
         envv = ENV
 
         _connection_string = f"mysql+mysqldb://{user}:{pwd}@{host}/{db}"
-        self.__engine = sql.create_engine(_connection_string)
+        self.__engine = create_engine(_connection_string)
 
         if envv == 'test':
             Base.metadata.drop_all(self.__engine)
