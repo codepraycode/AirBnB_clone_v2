@@ -10,7 +10,7 @@ from models.city import City
 from models.place import Place
 from models.review import Review
 from models.state import State
-
+from utils import generateId
 
 
 CLASSES = {
@@ -21,18 +21,6 @@ CLASSES = {
 }
 
 
-def generateObjId(obj):
-    """Generate Id for object in FileStorage
-
-    key =  object_class_name +  "." + object_id
-    Args:
-        obj (any): object that is to be save
-
-    Returns:
-        str: generated id
-    """
-
-    return str(obj.__class__.__name__) + "." + str(obj.id)
 
 
 class FileStorage:
