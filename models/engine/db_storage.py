@@ -18,7 +18,7 @@ CLASSES = {
     # "Amenity": Amenity,
     "User": User,
     "City": City,
-    # "Place": Place,
+    "Place": Place,
     # "Review": Review,
     "State": State,
     # "BaseModel": BaseModel,
