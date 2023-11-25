@@ -19,7 +19,7 @@ CLASSES = {
     "User": User,
     "City": City,
     "Place": Place,
-    # "Review": Review,
+    "Review": Review,
     "State": State,
     # "BaseModel": BaseModel,
 }
