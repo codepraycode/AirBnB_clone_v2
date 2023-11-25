@@ -21,7 +21,7 @@ CLASSES = {
     "Place": Place,
     "Review": Review,
     "State": State,
-    # "BaseModel": BaseModel,
+    "BaseModel": BaseModel,
 }
 
 DATABASE = getenv("HBNB_MYSQL_DB")
