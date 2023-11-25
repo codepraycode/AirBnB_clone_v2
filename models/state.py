@@ -5,10 +5,8 @@ from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 from models.city import City
 from sqlalchemy.orm import relationship
-# from models import storage
+from constants.env import STORAGE_TYPE
 
-
-STORAGE_TYPE = getenv("HBNB_TYPE_STORAGE")
 
 class State(BaseModel, Base):
     """ State class """

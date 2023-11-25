@@ -16,7 +16,7 @@ from utils.generateId import generateObjId as generateId
 
 CLASSES = {
     # "Amenity": Amenity,
-    # "User": User,
+    "User": User,
     "City": City,
     # "Place": Place,
     # "Review": Review,
