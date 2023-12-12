@@ -2,7 +2,7 @@
 """Script to distribute archive to web servers
 """
 
-from datetime import datetime
+import time
 from fabric.api import *
 import os
 
@@ -15,17 +15,18 @@ def do_pack():
         Generate a tgz archive from web_static folder
     """
 
-    date = time.strftime("Y%m%d%H%M%S")
-    
-    local("mkdir -p versions")
+    try:
+        date = time.strftime("Y%m%d%H%M%S")
 
-    archieved_path = "versions/web_static_{}.tgz".format(date)
-    zipped_archive = local("tar -cvzf {} web_static".format(archieved_path))
+        local("mkdir -p versions")
 
-    if zipped_archive.succeeded:
+        archieved_path = "versions/web_static_{}.tgz".format(date)
+        local("tar -cvzf {} web_static".format(archieved_path))
+
         return archieved_path
-    else:
+    except Exception as e:
         return None
+
 
 
 def do_deploy(archive_path):
@@ -37,7 +38,6 @@ def do_deploy(archive_path):
 
     if not os.path.exists(archive_path):
         return False
-    
 
     archive_file = archive_path[9:]
     newest_version = "data/web_static/releases/" + archived_file[:-4]
