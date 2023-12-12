@@ -16,7 +16,7 @@ def do_pack():
     """
 
     date = time.strftime("Y%m%d%H%M%S")
-    
+
     local("mkdir -p versions")
 
     archieved_path = "versions/web_static_{}.tgz".format(date)
@@ -37,7 +37,6 @@ def do_deploy(archive_path):
 
     if not os.path.exists(archive_path):
         return False
-    
 
     archive_file = archive_path[9:]
     newest_version = "data/web_static/releases/" + archive_file[:-4]
